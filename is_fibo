@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+// https://www.hackerrank.com/challenges/is-fibo/problem
+
+class Solution {
+
+    // Complete the solve function below.
+    static string solve(long n) {
+
+      long current = 1;
+      long prev1 = 1;
+      long prev2 = 0;
+      
+      while(current < n)
+      {
+        prev2 = prev1;
+        prev1 = current;
+        current = prev1 + prev2;
+      }
+
+      return current == n ? "IsFibo" : "IsNotFibo";
+    }
+
+    static void Main(string[] args) {
+        TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
+
+        int t = Convert.ToInt32(Console.ReadLine());
+
+        for (int tItr = 0; tItr < t; tItr++) {
+            long n = Convert.ToInt64(Console.ReadLine());
+
+            string result = solve(n);
+
+            textWriter.WriteLine(result);
+        }
+
+        textWriter.Flush();
+        textWriter.Close();
+    }
+}
