@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+// https://www.hackerrank.com/challenges/lowest-triangle/problem
+
+class Solution {
+
+    static int lowestTriangle(int @base, int area){
+        // Complete this function
+        var height =(int) Math.Ceiling((2 * area) / (@base + 0.0));
+        return height;
+    }
+
+    static void Main(String[] args) {
+        string[] tokens_base = Console.ReadLine().Split(' ');
+        int @base = Convert.ToInt32(tokens_base[0]);
+        int area = Convert.ToInt32(tokens_base[1]);
+        int height = lowestTriangle(@base, area);
+        Console.WriteLine(height);
+    }
+}
