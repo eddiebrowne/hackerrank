@@ -1,2 +1,2 @@
 # hackerrank
-Solutinos to HackerRank challenges.
+Solutions to HackerRank challenges.
