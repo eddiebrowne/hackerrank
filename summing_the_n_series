@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+// https://www.hackerrank.com/challenges/summing-the-n-series/problem
+
+class Solution {
+
+    /*
+     * Complete the summingSeries function below.
+     */
+    static int summingSeries(long n) {
+        /*
+         * Write your code here.
+         */
+      
+      // (ab mod m)=((a mod m)(b mod m))mod m
+      const int modulo = 1000000007;      
+      return (int) (((n % modulo)*(n % modulo)) % modulo);
+    }
+
+    static void Main(string[] args) {
+        TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
+
+        int t = Convert.ToInt32(Console.ReadLine());
+
+        for (int tItr = 0; tItr < t; tItr++) {
+            long n = Convert.ToInt64(Console.ReadLine());
+
+            int result = summingSeries(n);
+
+            textWriter.WriteLine(result);
+        }
+
+        textWriter.Flush();
+        textWriter.Close();
+    }
+}
